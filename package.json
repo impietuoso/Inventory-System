@@ -1,0 +1,11 @@
+{
+  "name": "com.impietuoso.inventory",
+  "version": "0.0.1",
+  "displayName": "Inventory",
+  "description": "This is an package",
+  "unity": "2019.1",
+  "author": {
+    "name": "Saul Rodrigues Alcantara",
+    "email": "sauldesigner.ce@gmail.com"
+  }
+}
