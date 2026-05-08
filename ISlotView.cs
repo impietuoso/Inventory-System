@@ -7,7 +7,7 @@ public class ISlotView : DataView<ISlot> {
     public int minimalAmountToShow = 2;
     public GameObject favoriteIcon;
 
-    public override void Subscribe() {
+    protected override void Subscribe() {
         Data.OnItemChanged += Slot_OnItemChanged;
         Data.OnAmountChanged += Slot_OnAmountChanged;
         Data.OnFavoriteChanged += Slot_OnFavoriteChanged;
@@ -17,7 +17,7 @@ public class ISlotView : DataView<ISlot> {
         Slot_OnFavoriteChanged(Data.favorite);
     }
 
-    public override void Unsubscribe() {
+    protected override void Unsubscribe() {
         Data.OnItemChanged -= Slot_OnItemChanged;
         Data.OnAmountChanged -= Slot_OnAmountChanged;
         Data.OnFavoriteChanged -= Slot_OnFavoriteChanged;

@@ -29,8 +29,8 @@ public class ListView : DataView <IEnumerable> {
     public void ReplaceItem(int index, object newData) {
         templateList[index].SetData(newData);
     }
-    
-    public override void Subscribe() {
+
+    protected override void Subscribe() {
         var index = 0;
         
         foreach (var newData in Data) {
@@ -42,7 +42,7 @@ public class ListView : DataView <IEnumerable> {
         }
     }
 
-    public override void Unsubscribe() {
+    protected override void Unsubscribe() {
         foreach (var item in templateList) {
             Destroy(item.gameObject);
         }

@@ -23,12 +23,12 @@ public class TooltipView : DataView<object> {
         rect.pivot = new (xPivot, yPivot);
     }
 
-    public override void Subscribe() {
+    protected override void Subscribe() {
         view.SetData(Data);
         gameObject.SetActive(true);
     }
 
-    public override void Unsubscribe() {
+    protected override void Unsubscribe() {
         gameObject.SetActive(false);
     }
 }
