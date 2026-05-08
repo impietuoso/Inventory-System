@@ -33,11 +33,11 @@ public class ListView : DataView <IEnumerable> {
     public override void Subscribe() {
         var index = 0;
         
-        foreach (var newData in data) {
+        foreach (var newData in Data) {
             AddItem(index++, newData);
         }
 
-        if (data is INotifyCollectionChanged coll) {
+        if (Data is INotifyCollectionChanged coll) {
             coll.CollectionChanged += OnCollectionChanged;
         }
     }
@@ -49,7 +49,7 @@ public class ListView : DataView <IEnumerable> {
         
         templateList.Clear();
         
-        if (data is INotifyCollectionChanged coll) {
+        if (Data is INotifyCollectionChanged coll) {
             coll.CollectionChanged -= OnCollectionChanged;
         }
     }

@@ -7,9 +7,9 @@ public class IItemView : DataView<IItem> {
     public Image sprite;
     
     public override void Subscribe() {
-        if (displayName) displayName.text = data.displayName;
-        if (description) description.text = data.description;
-        if (sprite) sprite.overrideSprite = data.sprite;
+        if (displayName) displayName.text = Data.displayName;
+        if (description) description.text = Data.description;
+        if (sprite) sprite.overrideSprite = Data.sprite;
     }
 
     public override void Unsubscribe() {

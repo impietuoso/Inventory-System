@@ -8,19 +8,19 @@ public class ISlotView : DataView<ISlot> {
     public GameObject favoriteIcon;
 
     public override void Subscribe() {
-        data.OnItemChanged += Slot_OnItemChanged;
-        data.OnAmountChanged += Slot_OnAmountChanged;
-        data.OnFavoriteChanged += Slot_OnFavoriteChanged;
+        Data.OnItemChanged += Slot_OnItemChanged;
+        Data.OnAmountChanged += Slot_OnAmountChanged;
+        Data.OnFavoriteChanged += Slot_OnFavoriteChanged;
 
-        Slot_OnItemChanged(data.item);
-        Slot_OnAmountChanged(data.amount);
-        Slot_OnFavoriteChanged(data.favorite);
+        Slot_OnItemChanged(Data.item);
+        Slot_OnAmountChanged(Data.amount);
+        Slot_OnFavoriteChanged(Data.favorite);
     }
 
     public override void Unsubscribe() {
-        data.OnItemChanged -= Slot_OnItemChanged;
-        data.OnAmountChanged -= Slot_OnAmountChanged;
-        data.OnFavoriteChanged -= Slot_OnFavoriteChanged;
+        Data.OnItemChanged -= Slot_OnItemChanged;
+        Data.OnAmountChanged -= Slot_OnAmountChanged;
+        Data.OnFavoriteChanged -= Slot_OnFavoriteChanged;
 
         Slot_OnItemChanged(null);
         Slot_OnAmountChanged(0);
@@ -29,15 +29,15 @@ public class ISlotView : DataView<ISlot> {
 
 
     public void SetFavorite(bool value) {
-        data.favorite = value;
+        Data.favorite = value;
     }
 
     public void ToggleFavorite() {
-        data.favorite = !data.favorite;
+        Data.favorite = !Data.favorite;
     }
 
     public void RemoveItem() {
-        data.amount = 0;
+        Data.amount = 0;
     }
 
     private void Slot_OnItemChanged(IItem iitem) {

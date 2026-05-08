@@ -12,17 +12,17 @@ public abstract class DataView : MonoBehaviour {
 }
 
 public abstract class DataView<T> : DataView {
-    public T data { get; private set; }
-    public abstract void Subscribe();
-    public abstract void Unsubscribe();
+    public T Data { get; private set; }
+    protected abstract void Subscribe();
+    protected abstract void Unsubscribe();
 
     public override void SetData(object newData) {
         try {
-            if (data != null) Unsubscribe();
+            if (Data != null) Unsubscribe();
             if (newData != null && newData is not T)
                 throw new Exception("Expected: " + typeof(T).Name + ". But got: " + newData.GetType().Name);
-            data = (T)newData;
-            if (data != null) Subscribe();
+            Data = (T)newData;
+            if (Data != null) Subscribe();
         } catch (Exception e) {
           Debug.LogError("Erro Set Data for Object " + newData, newData as Object);
           Debug.LogException(e, newData as Object);
@@ -31,6 +31,6 @@ public abstract class DataView<T> : DataView {
     }
     
     public override object GetData() {
-        return data;
+        return Data;
     }
 }

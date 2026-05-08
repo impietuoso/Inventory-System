@@ -31,7 +31,7 @@ public class IInventoryView : MonoBehaviour {
     }
 
     private void CurrentData_OnSlotRemoved(ISlot obj) {
-        var targetSlot = createdSlots.First(v => v.data == obj);
+        var targetSlot = createdSlots.First(v => v.Data == obj);
         createdSlots.Remove(targetSlot);
         Destroy(targetSlot.gameObject);
     }

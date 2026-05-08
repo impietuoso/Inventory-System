@@ -24,7 +24,7 @@ public class TooltipView : DataView<object> {
     }
 
     public override void Subscribe() {
-        view.SetData(data);
+        view.SetData(Data);
         gameObject.SetActive(true);
     }
 
