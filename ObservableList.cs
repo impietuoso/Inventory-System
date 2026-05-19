@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
+public interface IObservableList<T> : INotifyCollectionChanged, IReadOnlyList<T> {
+    
+}
+
 [Serializable]
-public class ObservableList<T> : IList<T>, INotifyCollectionChanged {
+public class ObservableList<T> : IList<T>, IObservableList<T> {
     [SerializeField]
     private List<T> list;
 
