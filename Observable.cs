@@ -1,8 +1,13 @@
 using System;
 using UnityEngine;
+public interface IObservable<T>
+{
+    T Value { get; }
+    event Action<T> OnChange;
+}
 
 [Serializable]
-public class Observable<T> {
+public class Observable<T> : IObservable<T> {
     [SerializeField]
     private T value;
     public event Action<T> OnChange;
