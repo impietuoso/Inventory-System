@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-public interface IObservable<T>
+public interface IObservable<out T>
 {
     T Value { get; }
     event Action<T> OnChange;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-public interface IObservableList<T> : INotifyCollectionChanged, IReadOnlyList<T> {
+public interface IObservableList<out T> : INotifyCollectionChanged, IReadOnlyList<T> {
     
 }
 
