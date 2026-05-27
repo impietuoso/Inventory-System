@@ -38,10 +38,8 @@ public class FixedListView : DataView <IEnumerable> {
 
     protected override void Unsubscribe() {
         foreach (var item in templateList) {
-            Destroy(item.gameObject);
+            item.SetData(null);
         }
-        
-        templateList.Clear();
         
         if (Data is INotifyCollectionChanged coll) {
             coll.CollectionChanged -= OnCollectionChanged;
@@ -69,9 +67,8 @@ public class FixedListView : DataView <IEnumerable> {
                 break;
             case NotifyCollectionChangedAction.Reset:
                 for (int i = 0; i < templateList.Count; i++) {
-                    Destroy(templateList[i + 1]);
+                    templateList[i + 1].SetData(null);
                 }
-                templateList.Clear();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
