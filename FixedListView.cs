@@ -5,7 +5,6 @@ using System.Collections.Specialized;
 using UnityEngine;
 
 public class FixedListView : DataView <IEnumerable> {
-    [HideInInspector]
     public List<DataView> templateList = new();
 
     public void AddItem(int index, object newData) {
