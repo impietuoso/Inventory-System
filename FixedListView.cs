@@ -5,28 +5,23 @@ using System.Collections.Specialized;
 using UnityEngine;
 
 public class FixedListView : DataView <IEnumerable> {
-    public DataView template;
     [HideInInspector]
     public List<DataView> templateList = new();
 
-    private void Awake() {
-        template.gameObject.SetActive(false);
-    }
-
     public void AddItem(int index, object newData) {
-        var newTemplate = Instantiate(template, template.transform.parent);
+        if (index >= templateList.Count) return;
+        var newTemplate = templateList[index];
         newTemplate.SetData(newData);
         newTemplate.gameObject.SetActive(true);
-        newTemplate.transform.SetSiblingIndex(index + 1);
-        templateList.Insert(index, newTemplate);
     }
     
     public void RemoveItem(int index) {
-        Destroy(templateList[index].gameObject);
-        templateList.RemoveAt(index);
+        if (index >= templateList.Count) return;
+        templateList[index].SetData(null);
     }
 
     public void ReplaceItem(int index, object newData) {
+        if (index >= templateList.Count) return;
         templateList[index].SetData(newData);
     }
 
